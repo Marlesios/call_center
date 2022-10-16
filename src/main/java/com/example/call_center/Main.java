@@ -9,7 +9,7 @@ public class Main {
         Operators operator = new Operators(ats);
 
         new Thread(null,ats::addCustomers,"operator 1").start();
-        new Thread(null,operator::takeCalls,"sasha").start();
+        new Thread(null,operator::takeCalls,"Sasha").start();
         new Thread(null,operator::takeCalls,"Gosha").start();
         new Thread(null,operator::takeCalls,"Egor").start();
 

@@ -5,19 +5,17 @@ import java.util.Random;
 public class Operators {
     private final Ats ats;
     Random random = new Random();
-    int startingPointTime = 3000;
-    int waitingTime = 2000;
+    int startingPointTime = 3500;
 
     public void takeCalls() {
         try {
             Thread.sleep(startingPointTime);
             while (!ats.customers.isEmpty()) {
-                if (!ats.getQueue().element().equals("null")) {
-                    Thread.sleep(waitingTime);
+                if (ats.getQueue().element() != null) {
                     String currentName = ats.getQueue().poll();
-                    System.out.printf("принят вызов от клиента %s оператором %s .", currentName, Thread.currentThread().getName());
-                    System.out.println("вызов обрабатывается  ..........");
-                    Thread.sleep(random.nextInt(500, 1500));
+                    System.out.printf("принят вызов от клиента %s оператором %s ." +
+                            " вызов обрабатывается ..... \n", currentName, Thread.currentThread().getName());
+                    Thread.sleep(random.nextInt(3000, 4500));
                 }
             }
         } catch (InterruptedException e) {
