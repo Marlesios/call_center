@@ -6,6 +6,8 @@ public class Operators {
     private final Ats ats;
     Random random = new Random();
     int startingPointTime = 3500;
+    int initialTime = 3000;
+    int endingTime = 4500;
 
     public void takeCalls() {
         try {
@@ -15,7 +17,7 @@ public class Operators {
                     String currentName = ats.getQueue().poll();
                     System.out.printf("принят вызов от клиента %s оператором %s ." +
                             " вызов обрабатывается ..... \n", currentName, Thread.currentThread().getName());
-                    Thread.sleep(random.nextInt(3000, 4500));
+                    Thread.sleep(random.nextInt(initialTime, endingTime));
                 }
             }
         } catch (InterruptedException e) {
